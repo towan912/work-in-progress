@@ -34,6 +34,49 @@
                 width: 250px;
                 height: 250px;
             }
+
+            .dot {
+                animation-name: dot;
+                animation-duration: 0.6s;
+                animation-timing-function: ease-in-out;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+                opacity: 0;
+            }
+
+            .dot-2 {
+                animation-delay: 0.2s;
+            }
+
+            .dot-3 {
+                animation-delay: 0.4s;
+            }
+
+            .bounce {
+                animation-name: bounce;
+                animation-duration: 1.2s;
+                animation-timing-function: ease-in-out;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+            }
+
+            @keyframes dot {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            @keyframes bounce {
+                from {
+                    transform: scale(0.9);
+                }
+                to {
+                    transform: scale(1);
+                }
+            }
         </style>
     </head>
 
@@ -42,7 +85,7 @@
         <!-- https://www.flaticon.com/free-icon/fast-time_2972562?term=clock&page=1&position=27# -->
         <?xml version="1.0"?>
 
-        <svg xmlns="http://www.w3.org/2000/svg" id="coming_soon" enable-background="new 0 0 512 512" height="512px"
+        <svg class="bounce" xmlns="http://www.w3.org/2000/svg" id="coming_soon" enable-background="new 0 0 512 512" height="512px"
             viewBox="0 0 512 512" width="512px">
             <g>
                 <g>
@@ -112,21 +155,9 @@
                 </g>
             </g>
         </svg>
-        <h1 id="loader">Work In Progress.</h1>
+        <h1 id="loader">Work In Progress<span class="dot dot-1">.</span><span class="dot dot-2">.</span><span class="dot dot-3">.</span></h1>
         <a href="https://github.com/two048/work-in-progress"><img alt="Github @two048/work-in-progress"
                 src="https://img.shields.io/static/v1?logo=github&message=Github&color=black&style=flat-square&label=" /></a>
-        <script>
-            const loader = document.getElementById('loader');
-            const phrases = ["Work In Progress.", "Work In Progress..", "Work In Progress..."];
-            let currentIndex = 0;
-
-            function updatePhrase() {
-                loader.textContent = phrases[currentIndex];
-                currentIndex = (currentIndex + 1) % phrases.length;
-            }
-
-            setInterval(updatePhrase, 1000);
-        </script>
     </body>
 
 </html>
